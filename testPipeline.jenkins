@@ -2,6 +2,11 @@ pipeline {
    agent any
 
    stages {
+          stage('build') {
+            steps {
+              sh 'pip install exceptiongroup'
+         }
+         }
 
       stage('runpy') {
         steps{      
