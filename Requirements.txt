@@ -1,0 +1,2 @@
+pip install 'pyodbc-4.0.32-cp39-cp39-win_amd64.whl'
+pip install 'exceptiongroup'
