@@ -5,7 +5,7 @@ pipeline {
 
       stage('runpy') {
         steps{      
-          sh 'python test_TRN.py'
+          sh 'python tests.py'
         }
         }
 
