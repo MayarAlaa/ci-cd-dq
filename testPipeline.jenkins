@@ -18,7 +18,11 @@ pipeline {
           
         }
          post{
-          
+          sucess{
+           script{
+              error "Tests succeeded..."
+              }   
+          }
           failure{
               script{
               error "Tests failed, exiting now..."
@@ -33,7 +37,7 @@ pipeline {
         
       stage('deploy') {
         steps{      
-          echo 'tests suceeded and deployment in progress...'
+          echo 'deployment in progress...'
          
           echo 'chnages are marged from ${env.BRANCH_NAME} branch to main'
         }
