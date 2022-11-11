@@ -31,7 +31,7 @@ pipeline {
       stage('deploy') {
         steps{      
           echo 'tests suceeded and deployment in progress...'
-          copy
+         
           echo 'chnages are marged from ${env.BRANCH_NAME} branch to main'
         }
         }
