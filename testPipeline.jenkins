@@ -26,7 +26,7 @@ pipeline {
       stage('Deploy') {
         steps{      
           echo 'deployment in progress...'
-          sh 'git merge -X theirs main'
+          sh 'git merge -X theirs origin/main'
           echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
         }
         }
