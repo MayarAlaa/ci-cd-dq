@@ -24,11 +24,17 @@ pipeline {
      
         
       stage('Deploy') {
+      
         steps{      
           echo 'deployment in progress...'
-          sh 'git push origin feature-merge'
+          }
+           post{
+                success {
+                     sh 'git merge -X theirs feature-merge'
+                }
+                }
           echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
-        }
+        
         }
 
   }
