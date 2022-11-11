@@ -35,11 +35,11 @@ pipeline {
           sh 'git checkout feature-merge'
           sh 'git merge main'
 
-         
+          echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
           }
              
 
-          echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
+          
         
         }
 
