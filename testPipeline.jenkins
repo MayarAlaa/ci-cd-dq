@@ -17,20 +17,7 @@ pipeline {
           sh 'python3 test_TRN.py'
           
         }
-         post{
-          success{
-           script{
-              error "Tests succeeded..."
-              }   
-          }
-          failure{
-              script{
-              error "Tests failed, exiting now..."
-              }   
-          }
-      
-      
-         }
+       
         }
         
      
