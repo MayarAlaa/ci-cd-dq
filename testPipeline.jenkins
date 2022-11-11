@@ -15,6 +15,26 @@ pipeline {
           sh 'python3 test_TRN.py'
         }
         }
+        
+      post{
+          success{
+          }
+          failure{
+              script{
+              error "Tests failed, exiting now..."
+              }   
+          }
+      
+      
+      }
+        
+      stage('deploy') {
+        steps{      
+          echo 'tests suceeded and deployment in progress...'
+          copy
+          echo 'chnages are marged from ${env.BRANCH_NAME} branch to main'
+        }
+        }
 
   }
 }
