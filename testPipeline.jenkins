@@ -27,10 +27,7 @@ pipeline {
       
         steps{      
           echo 'deployment in progress...'
-          sh 'git fetch --all'
-          sh 'git checkout master'
-          sh 'git checkout feature-merge'
-          sh 'git merge master'
+         
           }
              
           echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
