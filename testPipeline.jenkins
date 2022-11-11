@@ -11,6 +11,7 @@ pipeline {
 
       stage('test') {
         steps{      
+          echo 'running tests...'
           sh 'python3 test_TRN.py'
         }
         }
