@@ -7,16 +7,17 @@ pipeline {
               echo 'installing required libraries...'
               sh 'pip install -r requirements.txt'
          }
+         
+         
          }
 
       stage('test') {
         steps{      
           echo 'running tests...'
           sh 'python3 test_TRN.py'
+          
         }
-        }
-        
-      post{
+         post{
           success{
           }
           failure{
@@ -26,7 +27,10 @@ pipeline {
           }
       
       
-      }
+         }
+        }
+        
+     
         
       stage('deploy') {
         steps{      
