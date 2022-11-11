@@ -1,17 +1,10 @@
-import pyodbc
+import pymssql
 import pytest
 
 
 @pytest.fixture(scope='module')
 def connection():
-    conn_str = (
-        r"Driver=Sql Server;"
-        r"Server=.\SQLEXPRESS;"
-        r"Database=TRN;"
-        r";uid=TestUser;"
-        r"pwd=Test1234;"
-    )
-    connection = pyodbc.connect(conn_str)
+    connection = pymssql.connect(server='EPPLKRAW04C0\\SQLEXPRESS', user='TestUser', password='Test1234', database='TRN')
     yield connection
     connection.close()
 
