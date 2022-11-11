@@ -26,6 +26,8 @@ pipeline {
       stage('Deploy') {
         steps{      
           echo 'deployment in progress...'
+          sh 'git config --global user.email "mayaralaa12@gmail.com"'
+          sh 'git config --global user.name "MayarAlaa"'
           sh 'git push origin feature-merge'
           echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
         }
