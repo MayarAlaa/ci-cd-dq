@@ -27,7 +27,7 @@ pipeline {
         steps{      
           echo 'deployment in progress...'
          
-          echo 'chnages are marged from ${env.BRANCH_NAME} branch to main'
+          echo "changes are merged from ${env.BRANCH_NAME} branch to main"
         }
         }
 
