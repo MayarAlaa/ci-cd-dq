@@ -30,7 +30,11 @@ pipeline {
 
           sh 'git config --global user.email "mayaralaa12@gmail.com"'
           sh 'git config --global user.name "MayarAlaa"'
-          sh 'git merge -X theirs main'
+          sh 'git push origin feature-merge'
+          sh 'git checkout main'
+          sh 'git pull origin main'
+          sh 'git merge feature-merge'
+          sh 'git push origin main'
 
           echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
           }
