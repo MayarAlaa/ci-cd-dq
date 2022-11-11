@@ -18,8 +18,7 @@ pipeline {
           
         }
          post{
-          success{
-          }
+          
           failure{
               script{
               error "Tests failed, exiting now..."
