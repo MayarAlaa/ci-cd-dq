@@ -85,14 +85,13 @@ def verify_datatype(records: list, data_types: list):
 
 # Table: hr.jobs: Verify max length for column[job_title] <= 35
 def test_verify_max_length(cursor):
-    try:
-     cursor.execute('select job_title from hr.jobs')
+   
+     cursor.execute('select job_title from hr.jobss')
      rs = cursor.fetchall()
 
      assert verify_max_length(rs, 35)
 
-    except :
-     print("Test Failed")
+    
 
 
 # Table: hr.jobs: Verify max value for column[max_salary] = 40000
