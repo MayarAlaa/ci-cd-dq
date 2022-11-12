@@ -1,0 +1,108 @@
+Started by user admin
+Obtained testPipeline.jenkins from git https://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@github.com/MayarAlaa/ci-cd-dq.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/CI-CD
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/CI-CD/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://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@github.com/MayarAlaa/ci-cd-dq.git # timeout=10
+Fetching upstream changes from https://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@github.com/MayarAlaa/ci-cd-dq.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://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@github.com/MayarAlaa/ci-cd-dq.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse origin/feature-test-merge^{commit} # timeout=10
+Checking out Revision 7d762dde0968eb588d93f4dd73df8154c9c458b6 (origin/feature-test-merge)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7d762dde0968eb588d93f4dd73df8154c9c458b6 # timeout=10
+Commit message: "Create commit-example"
+ > git rev-list --no-walk aa6032205ae70c34511b6eea5e97aa12067f059f # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] echo
+installing required libraries...
+[Pipeline] echo
+Running 105 #105 on built-in and JOB CI-CD
+[Pipeline] sh
++ pip install -r requirements.txt
+Requirement already satisfied: pytest in /usr/local/lib/python3.9/dist-packages (from -r requirements.txt (line 1)) (7.2.0)
+Requirement already satisfied: exceptiongroup in /usr/local/lib/python3.9/dist-packages (from -r requirements.txt (line 2)) (1.0.1)
+Requirement already satisfied: packaging in /usr/local/lib/python3.9/dist-packages (from pytest->-r requirements.txt (line 1)) (21.3)
+Requirement already satisfied: pluggy<2.0,>=0.12 in /usr/local/lib/python3.9/dist-packages (from pytest->-r requirements.txt (line 1)) (1.0.0)
+Requirement already satisfied: tomli>=1.0.0 in /usr/local/lib/python3.9/dist-packages (from pytest->-r requirements.txt (line 1)) (2.0.1)
+Requirement already satisfied: iniconfig in /usr/local/lib/python3.9/dist-packages (from pytest->-r requirements.txt (line 1)) (1.1.1)
+Requirement already satisfied: attrs>=19.2.0 in /usr/local/lib/python3.9/dist-packages (from pytest->-r requirements.txt (line 1)) (22.1.0)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.9/dist-packages (from packaging->pytest->-r requirements.txt (line 1)) (3.0.9)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] echo
+running tests...
+[Pipeline] sh
++ python3 test_TRN.py
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] echo
+deployment in progress...
+[Pipeline] sh
++ git config --global user.name MayarAlaa
+[Pipeline] sh
++ git config --global user.email mayaralaa12@gmail.com
+[Pipeline] sh
++ git checkout feature-test-merge
+Previous HEAD position was 7d762dd Create commit-example
+Switched to branch 'feature-test-merge'
+Your branch and 'origin/feature-test-merge' have diverged,
+and have 1 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
++ git pull
+hint: Pulling without specifying how to reconcile divergent branches is
+hint: discouraged. You can squelch this message by running one of the following
+hint: commands sometime before your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+Merge made by the 'recursive' strategy.
++ git checkout main
+Switched to branch 'main'
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
++ git merge feature-test-merge
+Updating aa60322..ab21daa
+Fast-forward
++ git push
+To https://github.com/MayarAlaa/ci-cd-dq.git
+   cb73456..ab21daa  main -> main
+[Pipeline] sh
++ whoami
+root
+[Pipeline] echo
+Changes are merged from origin/feature-test-merge branch to main
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
