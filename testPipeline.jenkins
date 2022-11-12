@@ -28,7 +28,6 @@ pipeline {
         steps{      
           echo 'deployment in progress...'
 
-          sh 'git config --global user.email "mayaralaa12@gmail.com"'
           sh 'git push origin feature-merge'
           sh 'git checkout main'
           sh 'git pull origin main'
