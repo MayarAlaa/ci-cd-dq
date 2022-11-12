@@ -1,4 +1,4 @@
-upipeline {
+pipeline {
    agent any
 
    stages {
@@ -29,9 +29,9 @@ upipeline {
           echo 'deployment in progress...'
           sh 'git config --global user.name "MayarAlaa"'
           sh 'git config --global user.email "mayaralaa12@gmail.com"'
-          sh'git checkout feature-test-merge && git pull && git checkout main && git merge feature-test-merge && git push'
+          sh 'git checkout feature-test-merge && git pull && git checkout main && git merge feature-test-merge && git push'
           sh'whoami'
-          echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
+          echo "Changes are merged from $BRANCH_NAME branch to main"
           }
              
 
