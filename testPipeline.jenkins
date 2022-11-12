@@ -32,6 +32,7 @@ pipeline {
           sh'git checkout -f main'
           sh'git pull origin main'
           sh'git pull origin feature-test-merge'
+          sh'git push'
           sh'git merge feature-test-merge'
           sh'git add .'
           sh'git commit -m "commit changes"'
