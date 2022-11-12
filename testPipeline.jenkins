@@ -1,3 +1,4 @@
+githubToken = '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'
 pipeline {
    agent any
 
