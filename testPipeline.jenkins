@@ -31,9 +31,7 @@ pipeline {
           sh 'git config --global user.email "mayaralaa12@gmail.com"'
           sh'git checkout -f main'
           sh'git merge feature-test-merge'
-          sh'git add .'
-          sh'git commit -m "commit changes"'
-          sh'git push'
+          
 
           echo "Changes are merged from ${env.BRANCH_NAME} branch to main"
           }
